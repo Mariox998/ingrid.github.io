@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perdon</title>
+  <style>
+    body {
+      background-color: rgb(255, 176, 248);
+      display: flex;
+      justify-items: center;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    form {
+      width: 250px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow:  10px 10px 10px rgb(88, 88, 88);
+    }
+
+    button {
+      background-color: aquamarine;
+      border: none;
+      width: 100px;
+      cursor: pointer;
+      padding: 7px;
+      border-radius: 10px;
+       box-shadow:  4px 4px 4px rgb(88, 88, 88);
+       display: flex;
+       flex-direction: column;
+       justify-items: center;
+       align-items: center;
+    }
+
+    button img {
+      width: 20%;
+    }
+
+    button:hover {
+      background-color: rgb(0, 158, 105);
+    }
+
+   .wrapper {
+    display: flex;
+    justify-content: space-between;
+   }
+
+   h2 {
+    text-align: center;
+   }
+  </style>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "aR30l6jz_dnKYYbAb",
+            });
+        })();
+    </script>
+</head>
+<body>
+  <form id="form">
+    <h2>Me perdonas?</h2>
+    <div class="wrapper"> 
+      <button id="btn-si" type="button">Si <img src="https://www.clarin.com/2020/04/16/6rgMAFVEG_720x0__1.jpg" /></button>
+      <button id="btn-no" type="button">No</button>
+    </div>
+   
+  </form>
+  <script>
+    let scaleNumber = 1
+    emailjs.sendForm('service_dfzvesi', 'template_9rzqfdn', "form")
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+    const noButton = document.getElementById("btn-no")
+    const siButton = document.getElementById("btn-si")
+    siButton.style.transform = true
+    noButton.addEventListener("click", () => {
+      scaleNumber += 0.1
+      siButton.style.scale = scaleNumber.toFixed(1)
+    })
+    siButton.addEventListener("click", () => {
+       emailjs.sendForm('service_dfzvesi', 'template_0xk2qeu', "form")
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+
+                    alert("Siempre supe que me perdonarias :3")
+    })
+  </script>
+</body>
+</html>
