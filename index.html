@@ -45,12 +45,17 @@
     }
 
    .wrapper {
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
    }
 
    h2 {
     text-align: center;
+   }
+   .text {
+    margin: 10px;
+  
    }
   </style>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -66,6 +71,7 @@
 <body>
   <form id="form">
     <h2>Me perdonas?</h2>
+    <p id="te-amo"></p>
     <div class="wrapper"> 
       <button id="btn-si" type="button">Si <img src="https://www.clarin.com/2020/04/16/6rgMAFVEG_720x0__1.jpg" /></button>
       <button id="btn-no" type="button">No</button>
@@ -80,12 +86,35 @@
                     }, (error) => {
                         console.log('FAILED...', error);
                     });
+    const teAmo = document.getElementById("te-amo")
     const noButton = document.getElementById("btn-no")
     const siButton = document.getElementById("btn-si")
     siButton.style.transform = true
     noButton.addEventListener("click", () => {
-      scaleNumber += 0.1
-      siButton.style.scale = scaleNumber.toFixed(1)
+      scaleNumber = Number((scaleNumber + 0.1).toFixed(1))
+      siButton.style.scale = scaleNumber
+     
+      if (scaleNumber === 1.1) {
+        teAmo.innerHTML += `<div class="text">Te Amo</div>`
+      } else if (scaleNumber === 1.2) {
+         teAmo.innerHTML += `<div class="text">Te Amo mas</div>`
+      } else if (scaleNumber === 1.3) {
+         teAmo.innerHTML += `<div class="text">Te Amo mucho mas</div>`
+      } else if (scaleNumber === 1.4) {
+         teAmo.innerHTML += `<div class="text">Nunca dejare de amarte</div>`
+      } else if (scaleNumber === 1.5) {
+         teAmo.innerHTML += `<div class="text">Si la noche fuera tu regazo</div>`
+      } else if (scaleNumber === 1.6) {
+         teAmo.innerHTML += `<div class="text">Mil canciones cantaría sin descanso</div>`
+      } else if (scaleNumber === 1.7) {
+         teAmo.innerHTML += `<div class="text">Mi corazón perforado con un balazo</div>`
+      } else if (scaleNumber === 1.8) {
+         teAmo.innerHTML += `<div class="text">Mi amor camina descalzo</div>`
+      } else if (scaleNumber === 1.9) {
+         teAmo.innerHTML += `<div class="text">Para seguir leyendo el poema tenes que darle Si</div>`
+      } else if (scaleNumber >= 2) {
+         teAmo.innerHTML += `<div class="text">Dale si!!!</div>`
+      }
     })
     siButton.addEventListener("click", () => {
        emailjs.sendForm('service_dfzvesi', 'template_0xk2qeu', "form")
@@ -95,7 +124,13 @@
                         console.log('FAILED...', error);
                     });
 
-                    alert("Siempre supe que me perdonarias :3")
+                    alert(`Reconozco mi error
+No tengo perdón mi amor
+Te doy la razón
+Con todo mi corazón
+
+
+te amo gorditaaaa!!!`)
     })
   </script>
 </body>
