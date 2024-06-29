@@ -7,6 +7,9 @@
   <style>
     body {
       background-color: rgb(255, 176, 248);
+      background-image: url("https://i.pinimg.com/originals/46/b8/cf/46b8cf8d33e8a8ca32e802a6c866158f.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
       display: flex;
       justify-items: center;
       justify-content: center;
@@ -16,14 +19,14 @@
 
     form {
       width: 250px;
-      background-color: white;
+      background-color: rgba(88, 88, 88, 0.8);
       padding: 20px;
       border-radius: 20px;
-      box-shadow:  10px 10px 10px rgb(88, 88, 88);
+      opacity: 90%;
     }
 
     button {
-      background-color: aquamarine;
+      background-color: rgb(89, 155, 255);
       border: none;
       width: 100px;
       cursor: pointer;
@@ -41,7 +44,7 @@
     }
 
     button:hover {
-      background-color: rgb(0, 158, 105);
+      background-color: rgb(213, 161, 255);
     }
 
    .wrapper {
@@ -52,10 +55,11 @@
 
    h2 {
     text-align: center;
+    color: white;
    }
    .text {
     margin: 10px;
-  
+    color: white;
    }
   </style>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -73,18 +77,15 @@
     <h2>Me perdonas?</h2>
     <p id="te-amo"></p>
     <div class="wrapper"> 
-      <button id="btn-si" type="button">Si <img src="https://www.clarin.com/2020/04/16/6rgMAFVEG_720x0__1.jpg" /></button>
+      <button id="btn-si" type="button">Si</button>
       <button id="btn-no" type="button">No</button>
     </div>
-   
   </form>
   <script>
     let scaleNumber = 1
     emailjs.sendForm('service_dfzvesi', 'template_9rzqfdn', "form")
                     .then(() => {
                         console.log('SUCCESS!');
-                    }, (error) => {
-                        console.log('FAILED...', error);
                     });
     const teAmo = document.getElementById("te-amo")
     const noButton = document.getElementById("btn-no")
@@ -111,26 +112,31 @@
       } else if (scaleNumber === 1.8) {
          teAmo.innerHTML += `<div class="text">Mi amor camina descalzo</div>`
       } else if (scaleNumber === 1.9) {
+        emailjs.sendForm('service_dfzvesi', 'template_0xk2qeu', "form")
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    });
          teAmo.innerHTML += `<div class="text">Para seguir leyendo el poema tenes que darle Si</div>`
       } else if (scaleNumber >= 2) {
          teAmo.innerHTML += `<div class="text">Dale si!!!</div>`
       }
     })
     siButton.addEventListener("click", () => {
-       emailjs.sendForm('service_dfzvesi', 'template_0xk2qeu', "form")
-                    .then(() => {
+      emailjs.sendForm('service_dfzvesi', 'template_0xk2qeu', "form")
+          .then(() => {
                         console.log('SUCCESS!');
-                        alert(`Reconozco mi error
-No tengo perdón mi amor
-Te doy la razón
-Con todo mi corazón
+                        alert(`
+                              Reconozco mi error
+                              No tengo perdón mi amor
+                              Te doy la razón
+                              Con todo mi corazón
 
 
-te amo gorditaaaa!!!`)
-    })
-                    }, (error) => {
-                        console.log('FAILED...', error);
-                    });
+                              te amo gorditaaaa!!!`
+                      )
+                        })
+                    
+      });
 
                     
   </script>
