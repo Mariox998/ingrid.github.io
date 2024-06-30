@@ -61,6 +61,10 @@
     margin: 10px;
     color: white;
    }
+   audio {
+    width: 100%;
+    margin-top: 40px;
+   }
   </style>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -74,12 +78,14 @@
 </head>
 <body>
   <form id="form">
+   
     <h2>Me perdonas?</h2>
     <p id="te-amo"></p>
     <div class="wrapper"> 
       <button id="btn-si" type="button">Si</button>
       <button id="btn-no" type="button">No</button>
     </div>
+    <audio src="cancion.mp3" autoplay loop controls></audio>
   </form>
   <script>
     let scaleNumber = 1
